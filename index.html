@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<head>
+    <title>SCU Purity Test</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background: white;
+            padding: 2rem;
+            max-width: 800px;
+            margin: auto;
+        }
+        h1 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .question {
+            margin-bottom: 10px;
+        }
+        .question input {
+            margin-right: 10px;
+        }
+        #submit {
+            margin-top: 2rem;
+            padding: 0.8rem 2rem;
+            background: #fff;
+            color: #800000;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        #result {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>SCU Purity Test</h1>
+    <form id="purityForm">
+        <div id="questions"></div>
+        <button type="submit" id="submit">Calculate Score</button>
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+        const questions = [
+            "Snuck into SCDI after hours?",
+            "Gotten locked out of your dorm?",
+            "Been to The Hut on a Thursday?",
+            "Taken a photo with Bucky the Bronco?",
+            "Pulled an all-nighter in the library?",
+            "Attended a class still tipsy from the night before?",
+            "Gone fountain hopping?",
+            "Eaten nothing but Benson for a whole week?",
+            "Accidentally called a professor 'Mom' or 'Dad'?",
+            "Crashed a party in the Villas?",
+            "Got caught drinking in your dorm?",
+            "Been to a Bronco Bash?",
+            "Forgot where your class was in Kenna?",
+            "Cried over registration times?",
+            "Used the dark mode SCU course planner?",
+            "Had to run across campus in under 5 mins for class?",
+            "Sprinted through campus in the rain?",
+            "Said 'go Broncos' unironically?",
+            "Forgot your ACCESS card and begged someone to let you in?",
+            "Taken a nap on a couch in SCDI?",
+            // Add more up to 100 if you want
+        ];
+
+        const questionsContainer = document.getElementById("questions");
+
+        questions.forEach((q, index) => {
+            const div = document.createElement("div");
+            div.className = "question";
+            div.innerHTML = `
+                <label>
+                    <input type="checkbox" name="q${index}">
+                    ${q}
+                </label>
+            `;
+            questionsContainer.appendChild(div);
+        });
+
+        document.getElementById("purityForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const total = questions.length;
+            let checked = 0;
+            questions.forEach((_, index) => {
+                const cb = document.querySelector(`[name=q${index}]`);
+                if (cb.checked) checked++;
+            });
+            const score = 100 - Math.round((checked / total) * 100);
+            document.getElementById("result").innerText = `Your SCU Purity Score: ${score}`;
+        });
+    </script>
+
+</body>
+</html>
