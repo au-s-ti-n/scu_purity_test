@@ -19,7 +19,7 @@ html::before {
 
 body {
     background: #ffffff; 
-    max-width: 800px;
+    max-width: 1200px;
     margin: 30px auto;
     padding: 30px;
     border-radius: 10px;
@@ -29,8 +29,9 @@ body {
 
 h1 {
     text-align: center;
-    font-size: 3rem;
-    margin-bottom: 1rem;
+    font-size: 48px;
+    margin-bottom: 16px;
+    margin-top: 8px;
 }
 
 .center {
