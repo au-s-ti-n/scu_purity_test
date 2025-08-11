@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 
+<html>
 <head>
     <title>SCU Purity Test</title>
     <link rel="stylesheet" href="style.css">
@@ -129,7 +130,14 @@
     <div class="line"><span class="num">99.</span><input type="checkbox"> Gotten cooked by your ELSJ class? </div>
     <div class="line"><span class="num">100.</span><input type="checkbox"> Been proud to be a bronco? </div>
 
-    
+    <button onclick="calculateScore()">Calculate Score</button>
+
+    <script>
+        function calculateScore() {
+            let checked = document.querySelectorAll('input[type="checkbox"]:checked').length;
+            window.location.href = `results.html?score=${checked}`;
+        }
+    </script>
 
 </body>
 </html>

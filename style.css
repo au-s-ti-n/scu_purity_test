@@ -54,7 +54,6 @@ header {
     margin: 0;
     font-size: 50px;
     font-weight: 700;
-    color: #333;
 }
 
 .center {
@@ -73,7 +72,22 @@ header {
 }
 
 input[type="checkbox"] {
-        width: 16px; 
-        height: 16px; 
-    }
+    width: 16px; 
+    height: 16px; 
+}
+
+.score {
+    text-align: center;
+    font-size: 50px;
+    color: #8C1515;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.score_title {
+    text-align: center;
+    font-weight: 700;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
 

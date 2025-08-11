@@ -1,3 +1,71 @@
 <!DOCTYPE html>
 
+<html>
+<head>
+    <title>SCU Purity Test</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <span class="official">The Official</span>
+            <h1 class="title">SCU Purity Test</h1>
+        </div>
+    </header>
+
+    <p class="center">
+        <i>The SCU Purity Test has historically served as the ultimate method for measuring your experience at SCU. <br /> 
+        It's a voluntary opportunity for SCU students to bond and track their maturation and journey 
+        throughout college.</i>
+    </p>
+
+    <h1 class="score_title">Your score:</h1>
+    <div id="score" class="score"></div>
+    <div id="comment" class="center"></div>
+    <br /> <br /> <br />
+    <a href="index.html">Take Again</a>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const score = parseInt(params.get("score"));
+
+        if (!isNaN(score)) {
+            document.getElementById("score").textContent = `${score}`;
+         
+            if (score <= 10) {
+                comment = "You're a true bronco!";
+            } 
+            else if (score <= 20) {
+                comment = "20";
+            } 
+            else if (score <= 30) {
+                comment = "30";
+            } 
+            else if (score <= 40) {
+                comment = "40";
+            } 
+            else if (score <= 50) {
+                comment = "50";
+            } 
+            else if (score <= 60) {
+                comment = "60";
+            } 
+            else if (score <= 70) {
+                comment = "70";
+            } 
+            else if (score <= 80) {
+                comment = "80";
+            } 
+            else if (score <= 90) {
+                comment = "90";
+            } 
+            else {
+                comment = "Do you even go to SCU lil bro?";
+            }
+            document.getElementById("comment").textContent = comment;
+        } else {
+            document.getElementById("score").textContent = "what the helly";
+        }
+    </script>
+</body>
 </html>
