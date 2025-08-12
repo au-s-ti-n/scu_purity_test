@@ -134,7 +134,7 @@
 
     <script>
         function calculateScore() {
-            let checked = document.querySelectorAll('input[type="checkbox"]:checked').length;
+            let checked = 100 - document.querySelectorAll('input[type="checkbox"]:checked').length;
             window.location.href = `results.html?score=${checked}`;
         }
     </script>
