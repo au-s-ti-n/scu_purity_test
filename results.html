@@ -23,11 +23,16 @@
     <div id="score" class="score"></div>
     <div id="comment" class="comment"></div>
     <br /> <br /> <br />
-    <a href="index.html">Take Again</a>
+    <div class="center">
+        <a class="button" href="index.html">Take Again</a>
+        <button id="copyButton" class="button">Copy Results</button>
+    </div>
+    
 
     <script>
         const params = new URLSearchParams(window.location.search);
         const score = parseInt(params.get("score"));
+        const copyButton = document.getElementById("copyButton");
 
         if (!isNaN(score)) {
             document.getElementById("score").textContent = `${score}`;
@@ -36,16 +41,16 @@
                 comment = "Leavey Legend";
             } 
             else if (score <= 20) {
-                comment = "O'Connor Overlord";
-            } 
-            else if (score <= 30) {
-                comment = "Vari Virtuoso";
-            } 
-            else if (score <= 40) {
                 comment = "Heafey Hero";
             } 
-            else if (score <= 50) {
+            else if (score <= 30) {
                 comment = "Malley Master";
+            } 
+            else if (score <= 40) {
+                comment = "O'Connor Overlord";
+            } 
+            else if (score <= 50) {
+                comment = "Vari Virtuoso";
             } 
             else if (score <= 60) {
                 comment = "Graham Gold";
@@ -66,6 +71,15 @@
         } else {
             document.getElementById("score").textContent = "what the helly";
         }
+
+        copyButton.addEventListener("click", () => {
+            const text = `SCU Purity Test ${score}, find out yours at scupuritytest.com`;
+
+            navigator.clipboard.writeText(text).then(() => {
+                alert("Score copied to clipboard!");
+            });
+        });
+
     </script>
 </body>
 </html>

@@ -97,3 +97,17 @@ input[type="checkbox"] {
     font-weight: 700;
 }
 
+.button {
+    background-color: #8C1515;      /* SCU maroon */
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+}
+
+
