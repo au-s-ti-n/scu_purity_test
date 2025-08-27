@@ -41,10 +41,10 @@
                 comment = "Leavey Legend";
             } 
             else if (score <= 20) {
-                comment = "Heafey Hero";
+                comment = "Malley Master";
             } 
             else if (score <= 30) {
-                comment = "Malley Master";
+                comment = "Heafey Hero";
             } 
             else if (score <= 40) {
                 comment = "O'Connor Overlord";
@@ -73,7 +73,11 @@
         }
 
         copyButton.addEventListener("click", () => {
-            const text = `SCU Purity Test ${score}, find out yours at scupuritytest.com`;
+            const text = 
+`SCU Purity Test
+Score: ${score}
+Rank: ${comment}
+https://scupuritytest.com/`;
 
             navigator.clipboard.writeText(text).then(() => {
                 alert("Score copied to clipboard!");
