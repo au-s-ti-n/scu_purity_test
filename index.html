@@ -147,8 +147,9 @@
             let checked = 100 - document.querySelectorAll('input[type="checkbox"]:checked').length;
             window.location.href = `results.html?score=${checked}`;
 
-            gtag('event', 'purity_score', {
-                score_value: score
+            // sends to GA4
+            gtag('event', 'score', {
+                'score': checked,
             });
         }
     </script>
