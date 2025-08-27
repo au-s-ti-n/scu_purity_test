@@ -11,7 +11,7 @@
 
         gtag('config', 'G-V05F91C0XV');
     </script>
-    
+
     <title>SCU Purity Test</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -146,6 +146,10 @@
         function calculateScore() {
             let checked = 100 - document.querySelectorAll('input[type="checkbox"]:checked').length;
             window.location.href = `results.html?score=${checked}`;
+
+            gtag('event', 'purity_score', {
+                score_value: score
+            });
         }
     </script>
 
