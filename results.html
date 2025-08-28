@@ -96,6 +96,11 @@ https://scupuritytest.com/`;
             });
         });
 
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+            event: "purity_score",
+            score_value: score
+        });
     </script>
 </body>
 </html>
