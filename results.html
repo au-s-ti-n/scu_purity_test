@@ -96,11 +96,14 @@ https://scupuritytest.com/`;
             });
         });
 
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({
-            event: "purity_score",
-            score_value: score
-        });
+        if (!isNaN(score)) {
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+                event: "purity_score",
+                score_value: score 
+            });
+            console.log("GA4 Event pushed: purity_score =", score);
+        }
     </script>
 </body>
 </html>
