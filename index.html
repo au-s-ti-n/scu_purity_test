@@ -57,15 +57,15 @@
     <div class="line"><span class="num">14.</span><input type="checkbox"> Reserved a library room for an entire four hours? </div>
     <div class="line"><span class="num">15.</span><input type="checkbox"> Pulled an all-nighter on campus? </div>
     <div class="line"><span class="num">16.</span><input type="checkbox"> Made something in the Maker Lab? </div>
-    <div class="line"><span class="num">17.</span><input type="checkbox"> Ordered something at Fresh Bytes? </div>
-    <div class="line"><span class="num">18.</span><input type="checkbox"> Ordered something at Cadence? </div>
+    <div class="line"><span class="num">17.</span><input type="checkbox"> Been on a campus tour? </div>
+    <div class="line"><span class="num">18.</span><input type="checkbox"> Visited SCU's campus for a non-SCU related event or activity? </div>
     <div class="line"><span class="num">19.</span><input type="checkbox"> Ordered food from all 11 stations in Benson? </div>
     <div class="line"><span class="num">20.</span><input type="checkbox"> Had your order stolen in Benson? </div>
     <div class="line"><span class="num">21.</span><input type="checkbox"> Been in the Sussman Room? </div>
     <div class="line"><span class="num">22.</span><input type="checkbox"> Been forced to take an 8 am class? </div>
     <div class="line"><span class="num">23.</span><input type="checkbox"> Been forced to take a class with a professor with a low Rate My Professors rating? </div>
     <div class="line"><span class="num">24.</span><input type="checkbox"> Had three or more classes back-to-back? </div>
-    <div class="line"><span class="num">25.</span><input type="checkbox"> Had a class that ended after 5 pm? </div>
+    <div class="line"><span class="num">25.</span><input type="checkbox"> Had a class that ended after 6 pm? </div>
     <div class="line"><span class="num">26.</span><input type="checkbox"> Attended a hackathon at SCU? </div>
     <div class="line"><span class="num">27.</span><input type="checkbox"> Won a cash prize at a hackathon at SCU? </div>
     <div class="line"><span class="num">28.</span><input type="checkbox"> Been to an SCU career fair? </div>
@@ -100,7 +100,7 @@
     <div class="line"><span class="num">57.</span><input type="checkbox"> Never skipped a class on purpose? </div>
     <div class="line"><span class="num">58.</span><input type="checkbox"> ChatGPT'd your way through a core requirement class? </div>
     <div class="line"><span class="num">59.</span><input type="checkbox"> ChatGPT'd your way through a major requirement class? </div>
-    <div class="line"><span class="num">60.</span><input type="checkbox"> Used <a href="https://scuschedule.com/">scuschedule.com</a> and/or <a href="https://www.scu-course-evals.com/">scu-course-evals.com</a> to plan your class schedule? </div>
+    <div class="line"><span class="num">60.</span><input type="checkbox"> Used <a href="https://scuschedule.com/" target="_blank" rel="noopener noreferrer">scuschedule.com</a> and/or <a href="https://www.scu-course-evals.com/" target="_blank" rel="noopener noreferrer">scu-course-evals.com</a> to plan your class schedule? </div>
     <div class="line"><span class="num">61.</span><input type="checkbox"> Changed your major? </div>
     <div class="line"><span class="num">62.</span><input type="checkbox"> Had two or more minors? </div>
     <div class="line"><span class="num">63.</span><input type="checkbox"> Transferred to SCU from a UC? </div>
@@ -124,7 +124,7 @@
     <div class="line"><span class="num">81.</span><input type="checkbox"> Met your significant other at SCU? </div>
     <div class="line"><span class="num">82.</span><input type="checkbox"> Grew up in the Bay? </div>
     <div class="line"><span class="num">83.</span><input type="checkbox"> Attended an SCU sport event? </div>
-    <div class="line"><span class="num">84.</span><input type="checkbox"> Signed the <a href="https://www.change.org/p/petition-to-get-rid-of-the-new-scu-logo">petition</a> to change the SCU logo back? </div>
+    <div class="line"><span class="num">84.</span><input type="checkbox"> Signed the <a href="https://www.change.org/p/petition-to-get-rid-of-the-new-scu-logo" target="_blank" rel="noopener noreferrer">petition</a> to change the SCU logo back? </div>
     <div class="line"><span class="num">85.</span><input type="checkbox"> Been a TA for a class/lab? </div>
     <div class="line"><span class="num">86.</span><input type="checkbox"> Been approached on campus to join a Bible study? </div>
     <div class="line"><span class="num">87.</span><input type="checkbox"> Been on an Into the Wild trip? </div>
@@ -144,11 +144,63 @@
     <br \>
     <button class="button" onclick="calculateScore()">Calculate Score</button>
 
+    <div class="info-links">
+        <a id="disclaimer-btn" href="#">Disclaimer</a>
+        <span>•</span>
+        <a id="credits-btn" href="#">Credits</a>
+    </div>
+
+    <div id="disclaimer-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Disclaimer</h2>
+            <p>
+            This website uses Google Analytics to understand how visitors use the site. Google may use cookies to 
+            collect anonymous usage data. You can opt out anytime using your browser settings or the 
+            <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer">Google Analytics Opt-out Add-on</a>. 
+            For more details, see 
+            <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener noreferrer">Google’s Privacy Policy</a>.
+            </p>
+        </div>
+    </div>
+
+    <div id="credits-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Credits</h2>
+            <p>
+                Inspired by the <a href="https://ricepuritytest.com/" target="_blank" rel="noopener noreferrer">Rice Purity Test</a>. <br><br>
+                Developed by Austin Min. For questions or concerns, please contact: <br>amin [at] scu [dot] edu.<br><br>
+                Special thanks to all the beta testers!
+            </p>
+        </div>
+    </div>
+
     <script>
         function calculateScore() {
             let checked = 100 - document.querySelectorAll('input[type="checkbox"]:checked').length;
             window.location.href = `results.html?score=${checked}`;
         }
+
+        function setupModal(buttonId, modalId) {
+            const btn = document.getElementById(buttonId);
+            const modal = document.getElementById(modalId);
+            const closeBtn = modal.querySelector('.close');
+
+            btn.onclick = (e) => {
+                e.preventDefault();
+                modal.style.display = "block";
+            };
+
+            closeBtn.onclick = () => modal.style.display = "none";
+
+            window.addEventListener("click", (e) => {
+                if (e.target === modal) modal.style.display = "none";
+            });
+        }
+
+        setupModal('disclaimer-btn', 'disclaimer-modal');
+        setupModal('credits-btn', 'credits-modal');
     </script>
 
 </body>
