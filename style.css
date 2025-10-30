@@ -20,7 +20,7 @@ html::before {
 body {
     background: #ffffff; 
     font-size: 18px;
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 30px auto;
     padding: 30px;
     border-radius: 10px;
